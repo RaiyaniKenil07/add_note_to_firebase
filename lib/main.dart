@@ -39,10 +39,11 @@ class HomePage extends StatelessWidget {
                 return GridView.builder(
                   physics: BouncingScrollPhysics(),
                   itemCount: snapshot.hasData ? snapshot.data!.docs.length : 0,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 6),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                  ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
