@@ -41,9 +41,10 @@ class HomePage extends StatelessWidget {
                   physics: BouncingScrollPhysics(),
                   itemCount: snapshot.hasData ? snapshot.data!.docs.length : 0,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
+                    crossAxisCount: 1,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 6,
+                    childAspectRatio: 3.8 / 1,
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
@@ -57,27 +58,37 @@ class HomePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.blue.shade100),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                snapshot.data!.docs[index]["title"],
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 19, fontWeight: FontWeight.bold),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  snapshot.data!.docs[index]["title"],
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                             Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 9,
-                                ),
-                                child: Text(
-                                  snapshot.data!.docs[index]["content"],
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(),
-                                ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 9,
+                                    ),
+                                    child: Text(
+                                      snapshot.data!.docs[index]["content"],
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
