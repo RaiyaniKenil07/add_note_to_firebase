@@ -20,13 +20,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue.shade300,
           onPressed: () {
             Get.to(AddNote());
           },
           child: Icon(Icons.add),
         ),
         appBar: AppBar(
-          elevation: 0,
+          // elevation: 0,
           backgroundColor: Colors.blue.shade300,
           title: Text("Notes"),
           centerTitle: true,
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: StreamBuilder(
               stream: ref.snapshots(),
-              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              builder: (context, snapshot) {
                 return GridView.builder(
                   physics: BouncingScrollPhysics(),
                   itemCount: snapshot.hasData ? snapshot.data!.docs.length : 0,
@@ -66,15 +67,17 @@ class HomePage extends StatelessWidget {
                                     fontSize: 19, fontWeight: FontWeight.bold),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 9,
-                              ),
-                              child: Text(
-                                snapshot.data!.docs[index]["content"],
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 9,
+                                ),
+                                child: Text(
+                                  snapshot.data!.docs[index]["content"],
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(),
+                                ),
                               ),
                             ),
                           ],

@@ -11,9 +11,11 @@ class AddNote extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.blue.shade300,
           title: Text("Edit Note"),
           actions: [
             FloatingActionButton(
+              backgroundColor: Colors.transparent,
               onPressed: () {
                 ref.add({
                   "title": title.text,

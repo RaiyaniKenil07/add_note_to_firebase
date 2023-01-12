@@ -39,6 +39,7 @@ dependencies:
   get:
   cloud_firestore:
   firebase_core:
+  staggered_grid_view_flutter:
 
 
 dev_dependencies:

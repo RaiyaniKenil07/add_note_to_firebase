@@ -26,9 +26,11 @@ class _EditNotesState extends State<EditNotes> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.blue.shade300,
           title: Text("Edit Note"),
           actions: [
             FloatingActionButton(
+              backgroundColor: Colors.transparent,
               heroTag: "save",
               onPressed: () {
                 widget.docToEdit!.reference.update({
@@ -44,6 +46,7 @@ class _EditNotesState extends State<EditNotes> {
               elevation: 0,
             ),
             FloatingActionButton(
+              backgroundColor: Colors.transparent,
               heroTag: "Delete",
               onPressed: () {
                 widget.docToEdit!.reference
