@@ -22,7 +22,10 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue.shade300,
           onPressed: () {
-            Get.to(AddNote());
+            Get.to(
+              AddNote(),
+              transition: Transition.rightToLeft,
+            );
           },
           child: Icon(Icons.add),
         ),
@@ -49,9 +52,11 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Get.to(EditNotes(
-                          docToEdit: snapshot.data!.docs[index],
-                        ));
+                        Get.to(
+                            EditNotes(
+                              docToEdit: snapshot.data!.docs[index],
+                            ),
+                            transition: Transition.rightToLeft);
                       },
                       child: Card(
                         color: Colors.blue.shade100,
