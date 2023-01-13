@@ -5,7 +5,9 @@ import 'package:get/get_core/src/get_main.dart';
 
 class EditNotes extends StatefulWidget {
   DocumentSnapshot? docToEdit;
+
   EditNotes({this.docToEdit});
+
   @override
   State<EditNotes> createState() => _EditNotesState();
 }
@@ -59,7 +61,7 @@ class _EditNotesState extends State<EditNotes> {
           ],
         ),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 9, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 9, vertical: 9),
           child: Column(
             children: [
               Container(

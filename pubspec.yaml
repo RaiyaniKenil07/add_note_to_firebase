@@ -38,7 +38,6 @@ dependencies:
   cupertino_icons:
   get:
   cloud_firestore:
-  firebase_core:
   staggered_grid_view_flutter:
 
 
